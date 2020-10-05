@@ -1,0 +1,44 @@
+
+/* Gameboard and its 9 grid boxes */ 
+#gameboard-container {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    
+}
+
+#box1 {
+    border: black solid 2px;
+}
+
+#box2 {
+    border: black solid 2px;
+}
+
+#box3 {
+    border: black solid 2px;
+}
+
+#box4 {
+    border: black solid 2px;
+}
+
+#box5 {
+    border: black solid 2px;
+}
+
+#box6 {
+    border: black solid 2px;
+}
+
+#box7 {
+    border: black solid 2px;
+}
+
+#box8 {
+    border: black solid 2px;
+}
+
+#box9 {
+    border: black solid 2px;
+}
