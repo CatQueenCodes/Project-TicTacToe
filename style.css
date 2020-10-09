@@ -7,6 +7,10 @@
     
 }
 
+#box0 {
+    border: black solid 2px;
+}
+
 #box1 {
     border: black solid 2px;
 }
@@ -36,9 +40,5 @@
 }
 
 #box8 {
-    border: black solid 2px;
-}
-
-#box9 {
     border: black solid 2px;
 }
