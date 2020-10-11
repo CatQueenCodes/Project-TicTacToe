@@ -1,5 +1,6 @@
 const gameBoard = (() => {
-    const board = ['X0', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8'];
+    const board = ['', '', '', '', 'test', 'test', 'test', 'test', ''];
+    //links each box square on the dom to the array position, testing this out, may not need boxes defined here
     return {board}
 })();
 
@@ -10,39 +11,12 @@ const createPlayer = (name, symbol) => {
 //shows moves from gameboard[] in their corrosponding box in the browser
 function renderMoves() {
 
-    const board = gameBoard.board
+    const board = gameBoard.board;
 
+    //Loop through every item  in board[] and push the value of it to the corrosponding box in DOM
     for (let i=0; i<board.length; i++){
         console.log(board[i]);
-        switch (board[i]) {
-            case board[0]:
-                box0.textContent = board[i];
-                break;
-            case board[1]: 
-                box1.textContent = board[i];
-                break;
-            case board[2]: 
-                box2.textContent = board[i];
-                break;
-            case board[3]:
-                box3.textContent = board[i];
-                break;
-            case board[4]: 
-                box4.textContent = board[i];
-                break;
-            case board[5]: 
-                box5.textContent = board[i];
-                break;
-            case board[6]:
-                    box6.textContent = board[i];
-                    break;
-            case board[7]: 
-                    box7.textContent = board[i];
-                    break;
-            case board[8]: 
-                box8.textContent = board[i];
-                break;
-        }
+       
     }
     console.log('rendered');
 }
@@ -50,24 +24,31 @@ function renderMoves() {
 renderMoves();
 
 
-//function that lets players add marker to specific spot on the board where they click
-    //when spot it clicked push player's marker to the corrospsong box position in the array 
+//when box is clicked, pushes players marker to the array index corrosponding to the box, and renders page to show marker in box. 
     //if that array position already contains a marker, don't let them play there
     
 
 const playGame = (() =>{
     const spots = Array.from(document.getElementsByClassName('box'));
-    spots.forEach((box) => box.addEventListener('click', markSpot))
-
+    
     const board = gameBoard.board;
+    
+    //when spot it clicked push player's marker to the corrospsong box position in the array 
 
-    const markSpot = (spot) => {
-        //if that spot in the array already contains item - do nothing
+    const markSpot = (e) => {
+        const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex);
+        const targetBox = e.target; console.log(targetBox);
+
+        if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, 'SYMBOL')}; console.log(board); //sub SYMBOL for play Symbol
+
+        renderMoves();
         //if spot empty, push marker to that position in array and renderMoves();
     }
+    spots.forEach((box) => box.addEventListener('click', markSpot))
 
-    return {markSpots}
+    return {markSpot}
     
 })();
 
 
+//switch idea, get target, if target = box 0 -> if array[0] == "" push marker
