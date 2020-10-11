@@ -1,6 +1,5 @@
 const gameBoard = (() => {
-    const board = ['', '', '', '', 'test', 'test', 'test', 'test', ''];
-    //links each box square on the dom to the array position, testing this out, may not need boxes defined here
+    const board = ['', '', '', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8'];
     return {board}
 })();
 
@@ -13,14 +12,15 @@ function renderMoves() {
 
     const board = gameBoard.board;
 
-    //Loop through every item  in board[] and push the value of it to the corrosponding box in DOM
+    //Loop through every item  in board[] and push array value to corrosponding dom square
     for (let i=0; i<board.length; i++){
         console.log(board[i]);
-       
+       const targetBox = document.getElementById(`${i}`);     console.log(targetBox);
+       targetBox.textContent = board[i]; 
+
     }
     console.log('rendered');
 }
-
 renderMoves();
 
 
@@ -36,13 +36,10 @@ const playGame = (() =>{
     //when spot it clicked push player's marker to the corrospsong box position in the array 
 
     const markSpot = (e) => {
-        const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex);
-        const targetBox = e.target; console.log(targetBox);
+        const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex); //sets the board square to the corrosponding array index
 
         if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, 'SYMBOL')}; console.log(board); //sub SYMBOL for play Symbol
-
         renderMoves();
-        //if spot empty, push marker to that position in array and renderMoves();
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
 
