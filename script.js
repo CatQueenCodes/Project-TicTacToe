@@ -17,7 +17,6 @@ function renderMoves() {
         console.log(board[i]);
        const targetBox = document.getElementById(`${i}`);     console.log(targetBox);
        targetBox.textContent = board[i]; 
-
     }
     console.log('rendered');
 }
