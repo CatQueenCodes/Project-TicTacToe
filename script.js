@@ -17,7 +17,6 @@ function renderMoves() {
         console.log(board[i]);
        const targetBox = document.getElementById(`${i}`);     console.log(targetBox);
        targetBox.textContent = board[i]; 
-
     }
     console.log('rendered');
 }
@@ -27,14 +26,12 @@ renderMoves();
 //when box is clicked, pushes players marker to the array index corrosponding to the box, and renders page to show marker in box. 
     //if that array position already contains a marker, don't let them play there
     
-
 const playGame = (() =>{
     const spots = Array.from(document.getElementsByClassName('box'));
     
     const board = gameBoard.board;
     
     //when spot it clicked push player's marker to the corrospsong box position in the array 
-
     const markSpot = (e) => {
         const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex); //sets the board square to the corrosponding array index
 
@@ -43,9 +40,5 @@ const playGame = (() =>{
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
 
-    return {markSpot}
-    
+    return {markSpot}  
 })();
-
-
-//switch idea, get target, if target = box 0 -> if array[0] == "" push marker
