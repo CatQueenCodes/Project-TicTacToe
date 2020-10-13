@@ -11,3 +11,12 @@
     border: black solid 2px;
 }
 
+#winner {
+    border: black solid 2px;
+    height: 60px;
+    width: 500px;
+}
+
+#resetBtn {
+    background-color: aqua;
+}
