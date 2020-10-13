@@ -1,3 +1,4 @@
+//Module
 const gameBoard = (() => {
     const board = ['', '', '', '', '', '', '', '', ''];
     return {board}
@@ -20,38 +21,33 @@ function renderMoves() {
 const playGame = (() =>{
     const spots = Array.from(document.getElementsByClassName('box'));
     const board = gameBoard.board;
-    
     let symbol = ''; 
-    let lastSymbolUsed = '';
+    
     //when spot it clicked push player's marker to the corrospsong box position in the array 
     const markSpot = (e) => {
         const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex); //sets the board square to the corrosponding array index
 
         if (symbol === '') {
             symbol = 'X';
-            lastSymbolUsed = 'X';
-            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)}; console.log(symbol, lastSymbolUsed);
-        }else if (lastSymbolUsed === 'X') {
+            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
+        }else if (symbol === 'X') {
             symbol = 'O';
-            lastSymbolUsed = 'O';
-            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)}; console.log(symbol, lastSymbolUsed);
-        }else if (lastSymbolUsed === 'O') {
+            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
+        }else if (symbol === 'O') {
             symbol = 'X';
-            lastSymbolUsed = 'X';
-            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)}; console.log(symbol, lastSymbolUsed);
+            if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
         }
         renderMoves();
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
-
-    return {markSpot, symbol, lastSymbolUsed}  
+    return {markSpot}  
 })();
 
 //Factory Function: Creates player and allows them to make moves
-const player = (name, symbol) => {
+const player = (name) => {
     const {markSpot} = playGame; //gives players the ability to mark spots from playGame()
-    return {name, symbol, markSpot}
+    return {name, markSpot}
 }
 
-const player1 = player('player1', 'X');
-const player2 = player('player2', 'O');
+const player1 = player('player1');
+const player2 = player('player2');
