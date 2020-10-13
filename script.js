@@ -28,35 +28,38 @@ function renderMoves() {
 const playGame = (() =>{
     const spots = Array.from(document.getElementsByClassName('box'));
     const board = gameBoard.board;
-    let symbol = ''; 
-    
+    const winner = document.getElementById('winner');
+
     function checkWinner() {
-        if (board[0] === board[1] && board[1] === board[2]) {console.log("YOU WIN")}
-        if (board[3] === board[4] && board[4] === board[5]) {console.log("YOU WIN")}
-        if (board[6] === board[7] && board[7] === board[8]) {console.log("YOU WIN")}
-        if (board[0] === board[3] && board[3] === board[6]) {console.log("YOU WIN")}
-        if (board[1] === board[4] && board[4] === board[7]) {console.log("YOU WIN")}
-        if (board[2] === board[5] && board[5] === board[8]) {console.log("YOU WIN")}
-        if (board[0] === board[4] && board[4] === board[8]) {console.log("YOU WIN")}
-        if (board[2] === board[4] && board[4] === board[6]) {console.log("YOU WIN")}
+        if (board[0] === board[1] && board[1] === board[2]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[3] === board[4] && board[4] === board[5]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[6] === board[7] && board[7] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[3] && board[3] === board[6]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[1] === board[4] && board[4] === board[7]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[2] === board[5] && board[5] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[4] && board[4] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[2] === board[4] && board[4] === board[6]) {winner.textContent= `${winningPlayer} Wins!`};
     }
 
     //when spot it clicked push player's marker to the corrospsong box position in the array 
+    let symbol = ''; 
+    let winningPlayer = '';
     const markSpot = (e) => {
         const targetArrayIndex = board[`${e.target.id}`] ; //sets the board square to the corrosponding array index
-
         if (symbol === '') {
             symbol = player1.symbol;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
         }else if (symbol === player1.symbol) {
             symbol = player2.symbol;
+            winningPlayer = player2.name;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
         }else if (symbol === player2.symbol) {
             symbol = player1.symbol;
+            winningPlayer = player1.name;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
         }
         renderMoves();
-        checkWinner(); console.log("check winner")
+        checkWinner();
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
     return {markSpot}  
