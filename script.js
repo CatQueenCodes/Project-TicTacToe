@@ -21,12 +21,11 @@ const playGame = (() =>{
     const spots = Array.from(document.getElementsByClassName('box'));
     const board = gameBoard.board;
     
+    let symbol = ''; 
+    let lastSymbolUsed = '';
     //when spot it clicked push player's marker to the corrospsong box position in the array 
     const markSpot = (e) => {
         const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex); //sets the board square to the corrosponding array index
-
-        let symbol = '';
-        let lastSymbolUsed = '';
 
         if (symbol === '') {
             symbol = 'X';
@@ -45,7 +44,7 @@ const playGame = (() =>{
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
 
-    return {markSpot}  
+    return {markSpot, symbol, lastSymbolUsed}  
 })();
 
 //Factory Function: Creates player and allows them to make moves
