@@ -28,13 +28,13 @@ const playGame = (() =>{
         const targetArrayIndex = board[`${e.target.id}`] ; console.log(targetArrayIndex); //sets the board square to the corrosponding array index
 
         if (symbol === '') {
-            symbol = 'X';
+            symbol = player1.symbol;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
-        }else if (symbol === 'X') {
-            symbol = 'O';
+        }else if (symbol === player1.symbol) {
+            symbol = player2.symbol;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
-        }else if (symbol === 'O') {
-            symbol = 'X';
+        }else if (symbol === player2.symbol) {
+            symbol = player1.symbol;
             if (targetArrayIndex === '') {board.splice(`${e.target.id}`,1, symbol)};
         }
         renderMoves();
@@ -44,10 +44,18 @@ const playGame = (() =>{
 })();
 
 //Factory Function: Creates player and allows them to make moves
-const player = (name) => {
+const player = (name, symbol) => {
     const {markSpot} = playGame; //gives players the ability to mark spots from playGame()
-    return {name, markSpot}
+    return {name,symbol, markSpot}
 }
 
-const player1 = player('player1');
-const player2 = player('player2');
+const player1 = player('player1', 'X');
+const player2 = player('player2', 'O');
+
+
+//check winner
+
+function checkWinner() {
+ 
+}
+
