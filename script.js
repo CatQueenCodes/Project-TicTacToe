@@ -30,15 +30,19 @@ const playGame = (() =>{
     const board = gameBoard.board;
     const winner = document.getElementById('winner');
 
+    function endGame () {
+        spots.forEach((box) => box.removeEventListener('click', markSpot));
+    }
+
     function checkWinner() {
-        if (board[0] === board[1] && board[1] === board[2]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[3] === board[4] && board[4] === board[5]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[6] === board[7] && board[7] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[0] === board[3] && board[3] === board[6]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[1] === board[4] && board[4] === board[7]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[2] === board[5] && board[5] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[0] === board[4] && board[4] === board[8]) {winner.textContent= `${winningPlayer} Wins!`};
-        if (board[2] === board[4] && board[4] === board[6]) {winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[1] && board[1] === board[2] && board[0] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[3] === board[4] && board[4] === board[5] && board[3] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[6] === board[7] && board[7] === board[8] && board[6] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[3] && board[3] === board[6] && board[0] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[1] === board[4] && board[4] === board[7] && board[1] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[2] === board[5] && board[5] === board[8] && board[2] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[4] && board[4] === board[8] && board[0] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[2] === board[4] && board[4] === board[6] && board[2] !== '') {endGame(); winner.textContent= `${winningPlayer} Wins!`};
     }
 
     //when spot it clicked push player's marker to the corrospsong box position in the array 
@@ -62,7 +66,6 @@ const playGame = (() =>{
         checkWinner();
     }
     spots.forEach((box) => box.addEventListener('click', markSpot))
-    return {markSpot}  
 })();
 
 
