@@ -15,10 +15,11 @@ const player2 = player('Player2', 'O');
 //plays game and checks winner 
 const playGame = (() =>{
     const {board} = gameBoard;
-    //when spot it clicked push player's marker to the corrospsong box position in the array 
+   
     let symbol = ''; 
     let winningPlayer = '';
-    const markSpot = (e) => {
+     //when spot it clicked push player's marker to the corrospsong box position in the array 
+    const markSpot = (e) => { 
         console.log("start symbol:", symbol);
         const targetArrayIndex = board[`${e.target.id}`]; console.log(e.target); //sets the board square to the corrosponding array index
         if (symbol === '') {
@@ -38,16 +39,16 @@ const playGame = (() =>{
         checkWinner();
     }
     
-    
     function checkWinner() {
-        if (board[0] === board[1] && board[1] === board[2] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[3] === board[4] && board[4] === board[5] && board[3] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[6] === board[7] && board[7] === board[8] && board[6] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[0] === board[3] && board[3] === board[6] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[1] === board[4] && board[4] === board[7] && board[1] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[2] === board[5] && board[5] === board[8] && board[2] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[0] === board[4] && board[4] === board[8] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
-        if (board[2] === board[4] && board[4] === board[6] && board[2] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`};
+        if (board[0] === board[1] && board[1] === board[2] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;} 
+        if (board[3] === board[4] && board[4] === board[5] && board[3] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;} 
+        if (board[6] === board[7] && board[7] === board[8] && board[6] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[0] === board[3] && board[3] === board[6] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[1] === board[4] && board[4] === board[7] && board[1] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[2] === board[5] && board[5] === board[8] && board[2] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[0] === board[4] && board[4] === board[8] && board[0] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[2] === board[4] && board[4] === board[6] && board[2] !== '') {removeClick(); winner.textContent= `${winningPlayer} Wins!`; symbol = ''; return;}
+        if (board[0] !== '' && board[1] !== '' && board[2] !== '' && board[3] !== '' && board[4] !== '' && board[5] !== '' && board[6] !== '' && board[7] !== '' && board[8] !== '') {winner.textContent = "DRAW!"};
     }
     const spots = Array.from(document.getElementsByClassName('box'));
 
@@ -60,7 +61,7 @@ const playGame = (() =>{
     }
     addClick();
 
-    return {symbol, addClick}
+    return {addClick}
 })();
 
 
@@ -83,8 +84,7 @@ const renderAndRest = (() => {
         for (let i=0; i<board.length; i++){
             board[i] = '';
         }
-        winner.textContent = 'May the Best Player Win!';
-        playGame.symbol = ''; 
+        winner.textContent = 'May The Best Player Win!';
         addClick();
         renderMoves();
     });
