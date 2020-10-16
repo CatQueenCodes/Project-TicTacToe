@@ -1,22 +1,135 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffc7ad;
+}
 
-/* Gameboard and its 9 grid boxes */ 
+h1 {
+    font-size: 80px;
+    margin-bottom: 60px;
+    color: rgb(32, 15, 65);
+}
+
 #gameboard-container {
     display: grid;
     grid-template-rows: 200px 200px 200px;
     grid-template-columns: 200px 200px 200px;
-    
+    margin-bottom: 50px;
 }
 
-.box {
-    border: black solid 2px;
+.box0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 4px;
+    border-right: black solid 4px;
+    justify-items: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 4px;
+    border-left: black solid 4px;
+    border-right: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 4px;
+    border-left: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 4px;
+    border-top: black solid 4px;
+    border-right: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 4px;
+    border-top: black solid 4px;
+    border-left: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: black solid 4px;
+    border-right: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: black solid 4px;
+    border-top: black solid 4px;
+    border-left: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
+}
+.box8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: black solid 4px;
+    border-left: black solid 4px;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 #winner {
-    border: black solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black solid 5px;
+    border-radius: 10px;
     height: 60px;
     width: 500px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(32, 15, 65);
+    background-color: rgb(245, 236, 202);
 }
 
 #resetBtn {
-    background-color: aqua;
+    outline-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 200px;
+    border: solid 5px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(32, 15, 65);
+    background-color: rgb(245, 236, 202);
 }
