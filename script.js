@@ -9,8 +9,8 @@ const player = (name, symbol) => {
     return {name,symbol}
 }
 
-const player1 = player('Player1', 'X');
-const player2 = player('Player2', 'O');
+const player1 = player('Player 1', 'X');
+const player2 = player('Player 2', 'O');
 
 //plays game and checks winner 
 const playGame = (() =>{
