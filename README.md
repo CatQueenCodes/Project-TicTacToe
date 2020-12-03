@@ -1,5 +1,5 @@
 
-View & Play here: https://graceschwar.github.io/Project-TicTacToe/ 
+View & Play here: https://CatQueenCodes.github.io/Project-TicTacToe/ 
 
 This is the Tic-Tac-Toe project from The Odin Project: https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript 
 
